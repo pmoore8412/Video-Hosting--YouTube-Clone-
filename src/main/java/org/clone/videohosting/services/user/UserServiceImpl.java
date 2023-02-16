@@ -5,12 +5,16 @@ import org.clone.videohosting.exceptions.UserAlreadyExistsException;
 import org.clone.videohosting.exceptions.UserNotAuthorizedException;
 import org.clone.videohosting.exceptions.UserNotFoundException;
 import org.clone.videohosting.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import lombok.AllArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService{
 
     private UserRepository userRepository;
