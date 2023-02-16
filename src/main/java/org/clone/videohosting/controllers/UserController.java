@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,6 +32,13 @@ public class UserController {
         userService.addUser(user);
 
         return ResponseEntity.ok("User added successfully");
+
+    }
+
+    @PutMapping("/user/update/{id}")
+    public ResponseEntity<User> updateUserDetails(@PathVariable(name = "id") String id, @RequestBody User user) {
+
+        return ResponseEntity.ok(userService.updateUserDetails(id, user));
 
     }
 
