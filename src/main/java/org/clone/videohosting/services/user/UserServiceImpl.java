@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void addUser(User user) {
 
-        if(!userRepository.existsByUserName(user.getUserName())) {
+        if(userRepository.existsByUserName(user.getUserName())) {
             throw new UserAlreadyExistsException();
         }
 
