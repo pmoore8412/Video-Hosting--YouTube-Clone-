@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -19,27 +20,23 @@ public class Video {
     @Column(name = "id", unique = true, nullable = false)
     private String id;
 
-    @Column(name = "uploader_Id", nullable = false, length = 1000)
-    private String uploaderId;
+    @Column(name = "video_title")
+    private String title;
 
-    @Column(name = "uploader_name", nullable = false, length = 1000)
-    private String uploaderName;
+    @Column(name = "video_description")
+    private String description;
 
-    @Column(name = "title", length = 1000)
-    private String videoTitle;
+    @Column(name = "uploader_id")
+    private String userId;
 
-    @Column(name = "description", length = 100000)
-    private String videoDescription;
+    @Column(name = "video_url")
+    private String url;
 
-    @Lob
-    private byte[] data;
+    @Column(name = "video_status")
+    private VideoStatus videoStatus;
 
-    public Video(String videoTitle, String videoDescription, String uploaderId, String uploaderName, byte[] data) {
-        this.videoTitle = videoTitle;
-        this.videoDescription = videoDescription;
-        this.uploaderId = uploaderId;
-        this.uploaderName = uploaderName;
-        this.data = data;
-    }
+    @Column(name = "thumbnail")
+    private String thumbnailUrl;
+
 
 }
